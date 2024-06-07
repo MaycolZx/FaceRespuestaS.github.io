@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="es">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,177 +8,48 @@
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <!-- Contenedor para la barra maestra -->
-    <div class="slider-container">
-        <label for="sliderMaestro">Control Maestro:</label>
-        <input type="range" id="sliderMaestro" min="0" max="100" value="0">
-    </div>
-    <!-- Contenedor para la gráfica azul -->
-    <div class="grafico-container">
-        <canvas id="graficaAzul" class="grafico"></canvas>
-        <input type="range" id="sliderAzul" min="0" max="100" value="0">
-    </div>
-    <!-- Contenedor para la gráfica rosa -->
-    <div class="grafico-container">
-        <canvas id="graficaRosa" class="grafico"></canvas>
-        <input type="range" id="sliderRosa" min="0" max="100" value="0">
-    </div>
-    <div>
-      <!-- <canvas id="canvasOndas" width="400" height="200"></canvas> -->
-      <canvas id="canvas" width="400" height="200"></canvas>
-      <br>
-      <input type="range" min="0" max="50" value="20" id="waveAmplitudeInput">
+    <div class="all_Divs">
+        <div class="GeneralC">
+            <div class="slider-container">
+                <label for="sliderMaestro">Fases de Respuesta Sexual humana</label>
+                <input type="range" id="sliderMaestro" min="0" max="100" value="0">
+            </div>
+            <div class="containerGeneral01">
+                <!-- Contenedor para la gráfica azul -->
+                <div class="grafico-container-Azul">
+                    <canvas id="graficaAzul" class="grafico"></canvas>
+                    <input type="range" id="sliderAzul" min="0" max="100" value="0">
+                </div>
+                <!-- Contenedor para la gráfica rosa -->
+                <div class="grafico-container-Rosa">
+                    <canvas id="graficaRosa" class="grafico"></canvas>
+                    <input type="range" id="sliderRosa" min="0" max="100" value="0">
+                </div>
+            </div>
 
+            <div class="containerGeneral02">
+                <div class="graff_CAzul">
+                    <canvas id="canvasAzul" width="400" height="200"></canvas>
+                    <input type="range" min="0" max="50" value="20" id="waveAmplitudeInput">
+                </div>
+                <div class="graff_CRosa">
+                    <canvas id="canvasRosa" width="400" height="200"></canvas>
+                    <input type="range" min="0" max="50" value="20" id="waveAmplitudeInputRosa">
+                </div>
+            </div>
+        </div>
+        <!-- <button id="openHTMLButton">Entrar al mapa mental</button> -->
+
+        <div class="image-button" id="openHTMLButton">
+            <img src="graficoS.jpeg" alt="Image description">
+            <br>
+            <p class="labelClick">Click en la Imagen</label>
+        </div>
     </div>
     <script src="./ondas.js"></script>
-    <script>
-        // Datos de las gráficas
-        const dataAzul = [0.1, 0.7, 0.6, 1.0, 0.3, 0.3, 0.2, 0.1, 0.1, 0.1];
-        const dataRosa = [0, 0.1, 0.2, 0.3, 0.4, 0.6, 1.0, 0.8, 1.0, 0.0];
-
-        // Generar labels dinámicos basados en la cantidad de valores
-        const labels = dataAzul.map((_, index) => `Punto ${index + 1}`);
-
-        // Función para interpolar el valor
-        function interpolate(data, t) {
-            const n = data.length - 1;
-            const index = t * n;
-            const i = Math.floor(index);
-            const f = index - i;
-            if (i >= n) {
-                return data[n];
-            } else {
-                return data[i] * (1 - f) + data[i + 1] * f;
-            }
-        }
-
-        // Crear la gráfica azul
-        const ctxAzul = document.getElementById('graficaAzul').getContext('2d');
-        const graficaAzul = new Chart(ctxAzul, {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Nivel de Excitación (Azul)',
-                    data: dataAzul,
-                    borderColor: 'blue',
-                    borderWidth: 2,
-                    fill: false,
-                    tension: 0.4
-                }, {
-                    label: 'Punto Móvil',
-                    data: [null],
-                    borderColor: 'red',
-                    borderWidth: 4,
-                    fill: false,
-                    pointRadius: 5,
-                    showLine: false
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Tiempo'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Nivel de Excitación'
-                        },
-                        min: 0,
-                        max: 1
-                    }
-                }
-            }
-        });
-
-        // Crear la gráfica rosa
-        const ctxRosa = document.getElementById('graficaRosa').getContext('2d');
-        const graficaRosa = new Chart(ctxRosa, {
-            type: 'line',
-            data: {
-                labels: labels,
-                datasets: [{
-                    label: 'Nivel de Excitación (Rosa)',
-                    data: dataRosa,
-                    borderColor: 'pink',
-                    borderWidth: 2,
-                    fill: false,
-                    tension: 0.4
-                }, {
-                    label: 'Punto Móvil',
-                    data: [null],
-                    borderColor: 'red',
-                    borderWidth: 4,
-                    fill: false,
-                    pointRadius: 5,
-                    showLine: false
-                }]
-            },
-            options: {
-                scales: {
-                    x: {
-                        title: {
-                            display: true,
-                            text: 'Tiempo'
-                        }
-                    },
-                    y: {
-                        title: {
-                            display: true,
-                            text: 'Nivel de Excitación'
-                        },
-                        min: 0,
-                        max: 1
-                    }
-                }
-            }
-        });
-
-        // Función para actualizar el punto móvil en las gráficas
-        function updateGraphs(value) {
-            const interpolatedValueAzul = interpolate(dataAzul, value);
-            const interpolatedValueRosa = interpolate(dataRosa, value);
-
-            // Actualizar gráfica azul
-            const datasetAzul = graficaAzul.data.datasets[1];
-            datasetAzul.data = new Array(dataAzul.length).fill(null);
-            const indexAzul = Math.floor(value * (dataAzul.length - 1));
-            datasetAzul.data[indexAzul] = interpolatedValueAzul;
-            graficaAzul.update();
-
-            // Actualizar gráfica rosa
-            const datasetRosa = graficaRosa.data.datasets[1];
-            datasetRosa.data = new Array(dataRosa.length).fill(null);
-            const indexRosa = Math.floor(value * (dataRosa.length - 1));
-            datasetRosa.data[indexRosa] = interpolatedValueRosa;
-            graficaRosa.update();
-        }
-
-        // Event listener para el slider azul
-        document.getElementById('sliderAzul').addEventListener('input', function() {
-            const value = this.value / 100;
-            updateGraphs(value);
-        });
-
-        // Event listener para el slider rosa
-        document.getElementById('sliderRosa').addEventListener('input', function() {
-            const value = this.value / 100;
-            updateGraphs(value);
-        });
-
-        // Event listener para el slider maestro
-        document.getElementById('sliderMaestro').addEventListener('input', function() {
-            const value = this.value / 100;
-            // Actualizar sliders individuales
-            document.getElementById('sliderAzul').value = this.value;
-            document.getElementById('sliderRosa').value = this.value;
-            updateGraphs(value);
-        });
-    </script>
 </body>
+
 </html>

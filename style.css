@@ -1,26 +1,95 @@
-        .grafico-container {
-            width: 400px;
-            height: 300px;
-            margin-bottom: 20px;
-        }
-        .grafico {
-            width: 100%;
-            height: 100%;
-        }
-        .slider-container {
-            margin-bottom: 20px;
-        }
-        #canvas {
-            border: 1px solid black;
-        }
-        
-        input[type=range] {
-            width: 100%;
-        }
+.grafico-container-Azul,
+.grafico-container-Rosa,
+.graff_CAzul,
+.graff_CRosa {
+    width: 400px;
+    height: 300px;
+    margin-bottom: 20px;
+}
 
-        div {
-          display: grid;
-          place-items: center;
-          margin: auto;
-        }
+.grafico {
+    width: 100%;
+    height: 100%;
+}
 
+.slider-container {
+    margin-bottom: 20px;
+}
+
+canvas {
+    border: 1px solid black;
+}
+
+input[id="sliderMaestro"] {
+    width: 100%;
+}
+
+.containerGeneral01 {
+    float: left;
+    margin-left: 5em;
+}
+
+.containerGeneral02 {
+    float: right;
+    margin-right: 5em;
+}
+
+.slider-container {
+    margin-left: 15em;
+    margin-right: 15em;
+    display: grid;
+    place-items: center;
+    /* margin: auto; */
+}
+
+.allDivs{
+    display: inline-block;
+}
+
+.image-button{
+    display: inline-block;
+    cursor: pointer;
+    overflow: hidden;
+
+    margin-left: 30em;
+    /* margin-right: 30em; */
+    /* display: block; */
+    /* place-items: center; */
+    /* margin: auto; */
+}
+
+.labelClick {
+    /* background-color: black; */
+    color: black;
+    text-align: center;
+    
+    /* margin-left: 15em; */
+    /* size: 20px; */
+}
+
+.image-button img {
+    /* margin-left: 15em; */
+    width: 25em;
+    height: auto;
+    transition: transform 0.3s ease;
+}
+
+.image-button:hover img {
+    transform: scale(1.1);
+}
+
+@media (max-width: 600px) {
+    .div {
+        width: 50%;
+    }
+
+    .containerGeneral01 {
+        float: left;
+        margin-left: 5em;
+    }
+
+    .containerGeneral02 {
+        float: right;
+        margin-right: 5em;
+    }
+}
