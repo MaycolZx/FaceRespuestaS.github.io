@@ -42,16 +42,16 @@ input[id="sliderMaestro"] {
     /* margin: auto; */
 }
 
-.allDivs{
+.allDivs {
     display: inline-block;
 }
 
-.image-button{
+.image-button {
     display: inline-block;
     cursor: pointer;
     overflow: hidden;
 
-    margin-left: 30em;
+    margin-left: 35%;
     /* margin-right: 30em; */
     /* display: block; */
     /* place-items: center; */
@@ -62,7 +62,7 @@ input[id="sliderMaestro"] {
     /* background-color: black; */
     color: black;
     text-align: center;
-    
+
     /* margin-left: 15em; */
     /* size: 20px; */
 }
@@ -79,17 +79,35 @@ input[id="sliderMaestro"] {
 }
 
 @media (max-width: 600px) {
-    .div {
-        width: 50%;
+
+    .grafico-container,
+    .slider-container,
+    .canvas-container {
+        width: 100%;
+    }
+    .image-button{
+        margin-left: 35%;
+    }
+
+    /* canvas {
+        border: 1px solid green;
     }
 
     .containerGeneral01 {
+        border: 15px;
         float: left;
         margin-left: 5em;
+    } */
+
+}
+
+/* @media (max-width: 500px) { */
+/* .div {
+        width: 30%;
     }
 
     .containerGeneral02 {
         float: right;
         margin-right: 5em;
-    }
-}
+    } */
+/* } */
